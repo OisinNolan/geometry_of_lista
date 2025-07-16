@@ -1,7 +1,8 @@
 # The Geometry of LISTA
 This codebases implements the metrics and experiments described in the paper "The Geometry of LISTA".
 
-<img width="1402" height="222" alt="image" src="https://github.com/user-attachments/assets/cdb698b0-ac55-4c83-9065-3e00bdc4b924" />
+<img width="1402" height="222" alt="image" src="https://github.com/user-attachments/assets/b3a5ea77-9e2d-4407-8436-e12785a69c1f" />
+
 
 ### Setup
 First, clone the repository and navigate to the root directory. Then, build the docker image with the following command:
@@ -20,17 +21,20 @@ docker run -it --name=ista_geom -v "$(pwd)":/app -w /app --rm --gpus device=0 is
 
 ### Varying the noise level $\sigma_n^2$
 First, We re-run our experiments with varying noise standard deviation, including the noiseless case, with values $\sigma_n^2 \in \{0, 10^{-4}, 10^{-3}, 10^{-2}, 10^{-1}, 1\}$. Measuring the knot density and decision density at the final fold for each model, we find that training LISTA with the L1 objective results in a simpler decision density across noise levels.
-<img width="2952" height="953" alt="data_that_stays_constant noise_std_plot" src="https://github.com/user-attachments/assets/82d2c524-4d97-4919-9b8e-a0ba3a7a9d92" />
+<img width="2952" height="953" alt="data_that_stays_constant noise_std_plot" src="https://github.com/user-attachments/assets/a22aaec0-bf68-4107-8683-6b7709bd95bf" />
+
 
 
 ### Varying the size of $A$
 Next, we re-run our experiment varying the size of the measurement vector $M$, with $M \in \{8, 10, 12, 14, 16\}$. Again, we find a consistently simpler decision geometry across $M$ for LISTA L1.
-<img width="2952" height="953" alt="data_that_varies M min_plot" src="https://github.com/user-attachments/assets/61cbb6e7-cee5-4831-a7bc-0c94b2ce549d" />
+<img width="2952" height="953" alt="data_that_varies M min_plot" src="https://github.com/user-attachments/assets/34a094e4-4a00-4f7a-a87d-240e6526daa1" />
+
 
 
 ### Toeplitz sensing matrix
 Finally, we consider a sensing matrix $A$ with Toeplitz structure. In particular, we sample an initial set of random Gaussian values for the first row and column of $A$, and repeat those diagonally to fill up the matrix. When examining tests losses and geometry, we find the results to be consistent with our main findings.
-<img width="3552" height="1480" alt="knots_and_loss_toeplitz" src="https://github.com/user-attachments/assets/3440ff4e-658a-47b6-b3a0-02604748b698" />
+<img width="3552" height="1480" alt="knots_and_loss_toeplitz" src="https://github.com/user-attachments/assets/ed10c0ad-a73c-416d-bcae-92a28b14632d" />
+
 
 
 ### Reproducing additional results
