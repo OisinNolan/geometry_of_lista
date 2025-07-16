@@ -75,7 +75,7 @@ python main.py \
     --compute_knot_density=False \
     --visualize_hyperplane=False \
     --reconstruction_loss=l1 \
-    --sweep_noise_stds=True \
+    --sweep_M=True \
     --model_types LISTA
 
 python main.py \
@@ -84,7 +84,7 @@ python main.py \
     --compute_knot_density=False \
     --visualize_hyperplane=False \
     --reconstruction_loss=l2 \
-    --sweep_noise_stds=True \
+    --sweep_M=True \
     --model_types ISTA LISTA
 
 # compute knot density and decision density
