@@ -1,0 +1,11 @@
+__pycache__/
+knot_denisty_results/
+hyperplane_analysis_figures/
+archive/
+output/
+cache/
+model_analysis/
+result_analysis/
+.vscode/
+interesting_results/
+docker_run.sh
