@@ -3,6 +3,9 @@ This codebases implements the metrics and experiments described in the paper "Th
 
 <img width="1402" height="222" alt="image" src="https://github.com/user-attachments/assets/b3a5ea77-9e2d-4407-8436-e12785a69c1f" />
 
+### Visualizing and quantifying the geometry of LISTA and ISTA
+Below we plot the _reconstruction sparsity_ of LISTA on a 2D plane anchored to training samples in the input space. That is, for each point $y$ on this plane, we plot $\lVert f(x) \rVert_0$, where $f$ is ISTA or LISTA. On the lower sub-plot, we plot the _decision density_ -- an empirical metric quantifying the complexity of ISTA / LISTA function in terms of how often it changes its decision about the support of the predicted output $\texttt{supp}(f(y))$. We observe that training LISTA with an L1 reconstruction loss leads to a simpler geometry, with similar reconstruction performance.
+![all_iterations-ezgif com-optimize](https://github.com/user-attachments/assets/47f991b8-7e9b-408e-a36e-5669a2a5c2bf)
 
 ### Setup
 First, clone the repository and navigate to the root directory. Then, build the docker image with the following command:
