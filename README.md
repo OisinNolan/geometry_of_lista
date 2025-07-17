@@ -38,6 +38,8 @@ Next, we re-run our experiment varying the size of the measurement vector $M$, w
 Finally, we consider a sensing matrix $A$ with Toeplitz structure. In particular, we sample an initial set of random Gaussian values for the first row and column of $A$, and repeat those diagonally to fill up the matrix. When examining tests losses and geometry, we find the results to be consistent with our main findings.
 <img width="3552" height="1480" alt="knots_and_loss_toeplitz" src="https://github.com/user-attachments/assets/ed10c0ad-a73c-416d-bcae-92a28b14632d" />
 
+### Knot density and decision density throughout training
+<img width="3551" height="1451" alt="boundary_and_knot_density_L1_L2_final_fold_2plots" src="https://github.com/user-attachments/assets/cee5006a-05c5-4df6-a63e-6ae15bf46567" />
 
 
 ### Reproducing additional results
