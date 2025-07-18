@@ -38,25 +38,30 @@ $$
 where $S = \text{supp}(\mathbf{x})$ denotes the support of $\mathbf{x}$. We are interested in finding the MAP estimate, so given the proportional to statements, the MAP becomes:
 
 $$
-\hat{\mathbf{x}} = \mathop{\arg\max}\limits_{\substack{\mathbf{x} \\ |S| \leq K}} p(\mathbf{y} \mid \mathbf{x}).
+\hat{\mathbf{x}} = \arg\max \\
+\quad_{\mathbf{x},\ |S| \leq K} p(\mathbf{y} \mid \mathbf{x})
 $$
 
 This can also be written as a minimization problem of the negative log-likelihood:
 
 $$
-\hat{\mathbf{x}} = \mathop{\arg\min}\limits_{\substack{\mathbf{x} \\ |S| \leq K}} -\log p(\mathbf{y} \mid \mathbf{x}) = \mathop{\arg\min}\limits_{\substack{\mathbf{x} \\ |S| \leq K}} ||\mathbf{y}-\mathbf{A}\mathbf{x}||_2^2.
+\hat{\mathbf{x}} = \arg\min \\
+\quad_{\mathbf{x},\ |S| \leq K} -\log p(\mathbf{y} \mid \mathbf{x}) = \arg\min \\
+\quad_{\mathbf{x},\ |S| \leq K} ||\mathbf{y}-\mathbf{A}\mathbf{x}||_2^2
 $$
 
 A crucial observation is that for any sparse vector $\mathbf{x}$, not all columns of the sensing matrix $\mathbf{A}$ are relevant. If we denote $\mathbf{x}_S$ as the vector containing only the non-zero entries of $\mathbf{x}$, indexed by the support $S$, and $\mathbf{A}_S$ as the submatrix of $\mathbf{A}$ containing only the columns corresponding to $S$, then the minimization problem becomes:
 
 $$
-\hat{\mathbf{x}}_S = \mathop{\arg\min}\limits_{\substack{\mathbf{x}_S \\ |S| \leq K}} \left\| \mathbf{y} - \mathbf{A}_S \mathbf{x}_S \right\|_2^2.
+\hat{\mathbf{x}}_S = \arg\min \\
+\quad_{\mathbf{x}_S,\ |S| \leq K} \left\| \mathbf{y} - \mathbf{A}_S \mathbf{x}_S \right\|_2^2
 $$
 
 This minimization problem has then split our problem in two steps. First we need to find the optimal support $S$; once it is known, the minimizer of the L2 norm is known to be the pseudo-inverse. In other words we get:
 
 $$
-\hat{S} = \mathop{\arg\min}\limits_{\substack{S\\ |S| \leq K}} \left\| \mathbf{y} - \mathbf{A}_S  \mathbf{A}_S^+ \mathbf{y} \right\|_2^2, \quad \hat{\mathbf{x}} = \mathbf{A}_{\hat{S}}^+ \mathbf{y}.
+\hat{S} = \arg\min \\
+\quad_{S,\ |S| \leq K} \left\| \mathbf{y} - \mathbf{A}_S  \mathbf{A}_S^+ \mathbf{y} \right\|_2^2, \quad \hat{\mathbf{x}} = \mathbf{A}_{\hat{S}}^+ \mathbf{y}
 $$
 
 ## Putting it Together
@@ -64,5 +69,5 @@ $$
 From the equation above it can be seen that the CPWL function we learn indeed assigns linear transformations of the form $\mathbf{B} \in \mathbb{R}^{N \times M}$. Namely, it assigns the pseudo-inverse of the submatrix $\mathbf{A}_{\hat{S}}$ that minimizes the likelihood term. Thus, in order to get the number of unique matrices that the function assigns, we can count the number of unique supports $S$ that can be assigned to the problem. Remember that the sparsity of the support is at most $K$ and we have not shown that all supports are chosen (although we do hypothesize this). Thus the optimal number of linear regions that can be assigned is bounded as:
 
 $$
-\text{optimal number of projection regions} \leq \sum_{k=0}^{K} \binom{N}{k}.
+\text{optimal number of projection regions} \leq \sum_{k=0}^{K} \binom{N}{k}
 $$
